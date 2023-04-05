@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post-details.css" %}">
+{% endblock %}
+
+
+{% comment %} {% block title %}
+ post detail title
+{% endblock%}
+
+{% block content %}
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static "blog/img/mountain.jpg" %}"  alt="post-photo">
+            <address>By susheel Yadav</address>
+            <div>
+                last updated on <time>09 march 2022</time>
+            </div>
+        </article>
+    </section>
+
+    <main id="post-para">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error in iste eius! Esse quidem amet sunt illum provident dolores eligendi dignissimos. Molestiae necessitatibus ex corrupti, est tempore eum nostrum doloribus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error in iste eius! Esse quidem amet sunt illum provident dolores eligendi dignissimos. Molestiae necessitatibus ex corrupti, est tempore eum nostrum doloribus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error in iste eius! Esse quidem amet sunt illum provident dolores eligendi dignissimos. Molestiae necessitatibus ex corrupti, est tempore eum nostrum doloribus.</p>
+    </main>
+{% endblock %} {% endcomment %}
+
+
+
+{% block title %}
+ {{ post.title }}
+{% endblock%}
+
+{% block content %}
+    <section id="summary">
+        <h2>{{ post.title }}</h2>
+        <div >
+            {% for tag in post_tag %}
+            <span id="tags" >{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <article>
+            <img src="{% static "blog/img/"|add:post.image_name %}"  alt="post-photo">
+            <address><a href="mailto:{{ post.author.email }}">{{ post.author|title }}</a></address>
+           
+            <div>
+                last updated on <time>{{post.date|date:"d M Y"}}</time>
+            </div>
+        </article>
+    </section>
+
+    <main id="post-para">
+        {{ post.content|linebreaks }}
+    </main>
+{% endblock %}

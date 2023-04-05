@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Open+Sans:wght@300&family=Sacramento&family=Shantell+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    /* box-sizing: content-box; */
+
+}
+
+html{
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    margin:0;
+}
+
+h1,h2,h3{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+#main-navigation h1,a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+#main-navigation a:hover,
+#main-navigation a:active {
+    /* color:#cf79f1; */
+    color:red;
+}
+
+#main-navigation h1 a:hover,
+#main-naivgation h1 a:active {
+    color:red;
+}
+
+#main-navigation {
+    width:100%;
+    height:5rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
